@@ -1,0 +1,125 @@
+body {
+	background-color:lightyellow;
+	float:left;
+}
+
+/*-------------------------------------------------------------------------------------------------
+Class and Id properties
+-------------------------------------------------------------------------------------------------*/
+
+.navbar {
+	margin:20px;
+	padding:1px;
+	width:960px;
+	height:75px;
+	border:1px solid black;
+	float:left;
+	background-color:lightblue;
+	text-align: center;
+	font-size:x-large;
+}
+
+.welcome {
+	margin:20px;
+	padding:1px;
+	width:960px;
+	height:75px;
+	border:1px solid black;
+	float:left;
+	background-color:navy;
+	color:white;
+	font-color:white;
+}
+
+.hideme {
+	display:none
+}
+
+.quizpage {
+	margin:20px;
+	padding:1px;
+	width:960px;
+	height:420px;
+	border:1px solid black;
+	float:left;
+	background-color:white;
+}
+
+.status {
+	margin:20px;
+	padding:1px;
+	width:915px;
+	height:70px;
+	border:1px solid black;
+	float:left;
+	background-color:orange;
+	color:white;
+	font-color:white;
+}
+/*-------------------------------------------------------------------------------------------------
+Layout
+-------------------------------------------------------------------------------------------------*/
+
+/* Left column */
+#questions {
+    width:400px;
+    height:180px;
+    text-align: center;
+    margin:20px;
+    margin-left:60px;
+    padding:10px,10px,10px,10px;
+    border:1px solid black;
+	float:left;
+	background-color:lightblue;
+}
+
+/* Right column */
+#answers {
+    width:400px;
+    height:180px;
+    margin:20px;
+    padding:10px,10px,10px,10px;
+    border:1px solid black;
+	float:left;
+	background-color:lightgreen;
+}
+
+#answer, #answer1,#answer2,#answer3,#answer4 {
+    text-align:right;
+	margin-right:120px;
+}
+
+.Qh2 {
+	text-align:center;
+}
+
+h1,h2 {
+	text-align: center;
+}
+
+/*-------------------------------------------------------------------------------------------------
+Buttons
+-------------------------------------------------------------------------------------------------*/
+input[type=button] {
+  background-color: #96CA6D;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7fbf4d), color-stop(100%, #63a62f));
+  background-image: -webkit-linear-gradient(top, #7fbf4d, #63a62f);
+  background-image: -moz-linear-gradient(top, #7fbf4d, #63a62f);
+  background-image: -ms-linear-gradient(top, #7fbf4d, #63a62f);
+  background-image: -o-linear-gradient(top, #7fbf4d, #63a62f);
+  background-image: linear-gradient(top, #7fbf4d, #63a62f);
+  border: 1px solid #63a62f;
+  border-bottom: 1px solid #5b992b;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 0 0 #96ca6d;
+  box-shadow: inset 0 1px 0 0 #96ca6d;
+  color: white;
+  font: bold 11px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  padding: 6px 0 6px 0;
+  position:relative;
+  top:-1px;
+  text-align: center;
+  text-shadow: 0 -1px 0 #4c9021;
+  width: 50px;
+}
+

@@ -1,0 +1,33 @@
+/*-------------------------------------------------------------------------------------------------
+Layout
+-------------------------------------------------------------------------------------------------*/
+#wrapper {
+        width:960px;
+        height:300px;
+        margin:0px auto;
+        background-color:#dcdcdc;
+}
+
+.w-item {
+        width:100px;
+        height:100px;
+        margin:1px auto;
+        background-color:#FF0000;
+}
+
+
+/* Left column */
+#questions {
+        width:425px;
+        float:left;
+        margin-right:50px;
+
+}
+
+/* Right column */
+#answers {
+        width:400px;
+        float:left;
+        text-align:center;
+}
+

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+		<title>AP Chemistry Quiz Page</title>
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
+						
+		<!-- JS/CSS File we want on every page -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>				
+											
+		<!-- Controller Specific JS/CSS --->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/features.css">
+			
+	</head>
+
+
+	<body>
+		
+      	<h3 class="welcome">
+			Crimson Honors Chemistry Help Desk
+		</h3>
+			
+		<h2>
+			<nav class="navbar" "navbar-inverse" "navbar-static-top" role='navigation'>
+		
+				<a class="nav-btn" href='index.htm'>   Home   </a>
+		 		<a class="nav-btn" href='honors.htm'>   Honors   </a> 
+				<a class="nav-btn" href='apchemistry.htm'>   AP Chemistry   </a> 
+				<a class="nav-btn" href='help.htm'>   Help   </a>
+			  
+			</nav>
+		</h2>
+			
+		<div class="quizpage"> 
+		
+		        <h1>Quiz One</h1>
+		
+		        <!-- Left side with all the questions -->
+		        
+		        <div id='questions'>
+		        
+	                <h3 id="qhh" class="Qh2">Question 1</h3>
+	                <div>Which branch of chemistry would you classify a person if they were to study the chemical composition of the venom of a black widow spider?</div>
+	            
+	                <!-- Buttons -->
+			               
+	                <div>
+	
+		                <input type='button' id='check-btn' value='Check'>
+		                
+	                </div>
+		                
+		        </div>
+		        
+		        <!-- Right side with all the answers -->
+		        <div id='answers'>
+				
+					<h3 class="Qh2">Select one</h3>
+				    <div id='answer1'>
+						<label for='radio1'>Organic chemistry</label>
+						<input type="radio" id="radio1" name = 'answer'/><br>
+	                </div>
+		                
+	                <div id='answer2'>
+						<label for='radio2'>Inorganic chemistry</label>
+						<input type="radio" id="radio2" name = 'answer'/><br>
+	                </div>
+		                
+	                <div id='answer3'>
+						<label for='radio3'>Biochemistry</label>
+						<input type="radio" id="radio3" name = 'answer'/><br>
+	                </div>
+		                
+	                <div id='answer4'>
+						<label for='radio4'>Analytical chemistry</label>
+						<input type="radio" id="radio4" name = 'answer'/><br>
+	                </div>
+		            
+		            <div id='theanswer' class="hideme">Organic chemistry</div>
+		                
+		        </div>
+	
+		        <div class="status">
+		        	<div class="col-md-6" id="update">
+				        You've answered 0 questions<br>
+				        And you have 0 correct answers
+		        	</div>
+		        	<div class="col-md-3">
+	   	        	</div>
+		        	<div class="col-md-3">
+		                <div>
+			                <a href="honors.htm">
+				                <input type='button' id='back-btn' value='    '>
+			                </a>
+			                <a href="honors-qz1-q2.htm">
+				                <input type='button' id='next-btn' value='Next'>
+			                </a>
+		                </div>
+		        	</div>
+				</div>
+
+			</div>
+		<!-- <script src="js/card-o-matic.js"></script> --->
+		
+	</body>
+
+	<script src="js/ApChem1.js"></script>
+
+	<script>
+	
+	</script>
+
+	<!-- 	<script>
+
+		$('#answer-btn').click(function() {
+
+			console.log('Button was clicked');
+		});
+
+
+		$('#answer4').hover(function() {
+			console.log('Answre4 was hovered');
+		});
+
+		$('#answer5').hover(function() {
+			console.log('Answre5 was hovered');
+		});  
+
+	</script> --->
+		
+	<script>
+
+	</script>
+
+</html>
+
