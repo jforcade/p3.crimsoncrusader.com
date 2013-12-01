@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+		<title>AP Chemistry Quiz Page</title>
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
+						
+		<!-- JS/CSS File we want on every page -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>				
+											
+		<!-- Controller Specific JS/CSS --->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/features.css">
+			
+	</head>
+
+
+	<body>
+		
+      	<h3 class="welcome">
+			Crimson Honors Chemistry Help Desk
+		</h3>
+			
+		<h2>
+			<nav class="navbar" "navbar-inverse" "navbar-static-top" role='navigation'>
+		
+				<a class="nav-btn" href='index.htm'>   Home   </a>
+		 		<a class="nav-btn" href='honors.htm'>   Honors   </a> 
+				<a class="nav-btn" href='apchemistry.htm'>   AP Chemistry   </a> 
+				<a class="nav-btn" href='help.htm'>   Help   </a>
+			 
+			</nav>
+		</h2>
+			
+		<h3  class="banner">Quiz One</h3>
+		
+		<div class="quizpage"> 
+
+			<div id="qa" class="Qh2">
+				
+		        <!-- Left side with all the questions -->
+		        
+		        <div id='questions'>
+		        
+	                <h3 id="qhh" class="Qh2">Question 4</h3>
+
+	                <div id="qhd">
+
+		        		Select all items considered an INTENSIVE property <br>
+		        		as opposed to an extensive property. <br> 
+		        		No partial credit.  All checkmarks must be right! 
+		        	
+		        	</div>
+
+	                <div>
+
+		                <input type='button' id='check-btn' value='Check'>
+		                
+	                </div>
+	                
+				</div>
+
+		        <!-- Right side with all the answers -->
+		        <div id='answers'>
+	
+	        
+					<h3 class="Qh2">Select ALL correct answers</h3>
+				    <div id='answer1'>
+						<label for='chk-name1'>Mass</label>
+						<input type="checkbox" id="check1" name = 'chk-name1'/><br>
+	                </div>
+
+				    <div id='answer2'>
+						<label for='chk-name2'>Density</label>
+						<input type="checkbox" id="check2" name = 'chk-name2'/><br>
+	                </div>
+
+				    <div id='answer3'>
+						<label for='chk-name3'>Volume</label>
+						<input type="checkbox" id="check3" name = 'chk-name3'/><br>
+	                </div>
+
+				    <div id='answer4'>
+						<label for='chk-name4'>Termperature</label>
+						<input type="checkbox" id="check4" name = 'chk-name4'/><br>
+	                </div>
+
+				    <div id='answer5'>
+						<label for='chk-name5'>Heat</label>
+						<input type="checkbox" id="check5" name = 'chk-name5'/><br>
+	                </div>
+	
+					<div id='answertype' class="hideme">3</div>
+					<div id='theanswer' class="hideme">24</div>
+			            		                
+		        </div>
+	
+		        <div class="status">
+		        	<div class="col-md-6" id="update">
+				        You've answered 0 questions<br>
+				        And you have 0 correct answers
+		        	</div>
+		        	<div class="col-md-3"></div>
+		        	<div class="col-md-3">
+		                <div>
+			                <div>
+				                <a href="honors-qz1-q7.htm">
+					                <input type='button' id='next-btn' value='Next'>
+				                </a>
+				                <a href="honors-qz1-q5.htm">
+					                <input type='button' id='back-btn' value='Back'>
+				                </a>
+			                </div>
+		                </div>
+		        	</div>
+			    </div>
+			</div>
+		</div>
+		
+	</body>
+
+	<script src="js/ApChem1.js"></script>
+
+</html>
