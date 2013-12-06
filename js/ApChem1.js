@@ -5,7 +5,22 @@
 var theAnswers = new Array();
 var uranswer;
 var urtextboxes = new Array();
+var thisQuestionNo;
+/* Each question that has been answered adds to the tally
+ *  and can only be answered once.  Tally keeps track of this
+ *  zero means not answered, one means the question has been 
+ *  answered.
+ */
+var urtally = new Array();
+urtally[0]=0;
+urtally[1]=0;
+urtally[2]=0;
+urtally[3]=0;
+urtally[4]=0;
+urtally[5]=0;
+urtally[6]=0;
 
+var urscore = 0;
 
 /** This allows radio button to be selected by label */
 
@@ -56,8 +71,18 @@ $('input[name=txt-box]').change(function() {
 
 $('input[id=check-btn]').click(function() {
 
-	//console.log("the answertype html = " + $('#answertype').html());
+	thisQuestionNo = $('#questionNo').html();
 	var type=$('#answertype').html();
+
+	if (urtally[thisQuestionNo]=='1') {
+		//type = '4';
+	} else {
+		//urtally[thisQuestionNo]='1';
+	} 
+
+	// alert("the question number = " + thisQuestionNo);
+	// alert("the tally value = " + urtally[thisQuestionNo]);
+	
 	//console.log("the var type = " + type);
 
 	switch(type)	
@@ -86,23 +111,53 @@ $('input[id=check-btn]').click(function() {
 		
 });
 
+$('input[id=show-btn]').click(function() {
+
+	thisQuestionNo = $('#questionNo').html();
+	var type=$('#answertype').html();
+
+	if (urtally[thisQuestionNo]=='1') {
+		//type = '4';
+	} else {
+		//urtally[thisQuestionNo]='1';
+	} 
+
+	switch(type)	
+	{
+	case '1':
+		break;
+		
+	case '2':
+		break;
+		
+	case '3':
+		console.log("case 3 called");
+		showAnswers();
+		break;
+		
+	default:
+		break;
+	}
+		
+});
+
 function singleAnswer() {
 
 	console.log("singleAnswer was called");
 
 	if (uranswer==$('#theanswer').html()) {
 	
-		$('#update').html("Your answer is correct!");
+		$('#status-left').html("Your answer is correct!");
 		
 	} else {
 		
 		if (uranswer==undefined) {
 		
-			$('#update').html("Please select an answer.");
+			$('#status-left').html("Please select an answer.");
 			
 		} else {
 			
-			$('#update').html("Try again! ");
+			$('#status-left').html("Try again! ");
 		}	
 	}
 	
@@ -118,17 +173,17 @@ function checkedAnswers() {
 
 	if (uranswer==$('#theanswer').html()) {
 	
-		$('#update').html("Your answer is correct!");
+		$('#status-left').html("Your answer is correct!");
 		
 	} else {
 		
 		if (uranswer==undefined) {
 		
-			$('#update').html("Please select an answer.");
+			$('#status-left').html("Please select an answer.");
 			
 		} else {
 			
-			$('#update').html("Try again! ");
+			$('#status-left').html("Try again! ");
 		}	
 	}
 	
@@ -136,32 +191,52 @@ function checkedAnswers() {
 
 function textBoxes() {
 
-	var allanswers;
+	var allanswers = new Array();
+	
+	//alert("UR Answer length is equal to" + urtextboxes.length);
+	//alert("UR Answer 0 is equal to" + urtextboxes[0]);
 
-	allanswers = urtextboxes[1];
-	for (i=2;i<urtextboxes.length;i++) {
-		console.log("urtextbox # " + i + " : " + urtextboxes[i]);
-		allanswers=allanswers + urtextboxes[i];
-	}
-	
-	//console.log("textBoxes was called and uranswer was " + allanswers);
-	//console.log("THE ANSWER IS  " + $('#theanswer').html());
-	
-	if (allanswers==$('#theanswer').html()) {
-	
-		$('#update').html("Your answer is correct!");
+	for (i=0;i<urtextboxes.length-1;i++) {
 		
-	} else {
+		alert("i = " + i);
+		j = i + 1;
+		allanswers[i]=$('#theanswer' + j).html();
+		//alert("Answer" + i + "is equal to" + allanswers[i]);
+		//alert("UR Answer" + i + "is equal to" + urtextboxes[j]);
 		
-		if (allanswers==undefined) {
-		
-			$('#update').html("Please select an answer.");
-			
+
+		if (allanswers[i]==urtextboxes[j]) {
+			$('#status-left').html("Your answer is correct!");
 		} else {
-			
-			$('#update').html("Try again! ");
-		}	
+			if (allanswers[i]==undefined) {
+				$('#status-left').html("Please enter ALL answers.");
+				break;
+			} else {
+				$('#status-left').html("Try again! ");
+				break;
+				}
+			}
+		}
 	}
 	
-}
+function showAnswers() {
+
+	alert("showAnswers was called");
+
+	var myValue;
+
+	//for (i=1;i<4-1;i++) {
+	//	alert("the answer is " + $('#theanswer' + i).html());
+	//	myValue=$('text' + i);
+	//	myValue.value = $('#answer' + i).html();
+	//	}
+		
+	myValue=$(text1);
+	myValue.value = $('#answer1').html();
+	myValue=$(text2);
+	myValue.value = $('#answer2').html();
+	myValue=$(text3);
+	myValue.value = $('#answer3').html();
+	
+	}
 
