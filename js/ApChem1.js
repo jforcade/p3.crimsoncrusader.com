@@ -1,26 +1,11 @@
 /**
- * @author JOE FORCADE
+ * @author JOSE FORCADE
  */
 
 var theAnswers = new Array();
 var uranswer;
 var urtextboxes = new Array();
 var thisQuestionNo;
-/* Each question that has been answered adds to the tally
- *  and can only be answered once.  Tally keeps track of this
- *  zero means not answered, one means the question has been 
- *  answered.
- */
-var urtally = new Array();
-urtally[0]=0;
-urtally[1]=0;
-urtally[2]=0;
-urtally[3]=0;
-urtally[4]=0;
-urtally[5]=0;
-urtally[6]=0;
-
-var urscore = 0;
 
 /** This allows radio button to be selected by label */
 
@@ -29,7 +14,6 @@ $('input[name=answer]').click(function() {
 	var label = $(this).prev();
 	uranswer = label.html();
 	
-	//console.log("You clicked on " + uranswer);
 	//alert("You selected " + uranswer);
 	
 });
@@ -44,106 +28,99 @@ $('input[name=chk-box]').click(function() {
 	}
 	
 	if (uranswer.length>1) {
-		//alert("Your length is " + uranswer.length);
 		uranswer = uranswer.split('').sort().join('');
 	}
 	
 	// console.log("You clicked on " + uranswer);
-	// alert("You selected " + uranswer);
 	
 });
 
 $('input[name=txt-box]').change(function() {
 	var label = $(this).prev();
+	var type=$('#answertype').html();
+    var	start = this.selectionStart;
+    var end = this.selectionEnd;
 	
-	urtextboxes[label.html()] = $(this).val();
-	
-	// add input validation for data entry 
-	// field requirements : must be A, B or C.	
-	
-	// alert("label html = " + label.innerHTML);
-	// alert("this html = " + $(this).innerHTML);
-	// alert("Hey You!");
+	//alert("type = " + type);
+	//alert("$THIS.VAL = "+ $(this).val());
+
+	// Test for A B C as only acceptable input.
+
+	if (type=='3') {
+		if (($(this).val()=='A') || ($(this).val()=='B') || ($(this).val()=='C')) {
+			urtextboxes[label.html()] = $(this).val();
+		} else {
+			$('#status-left').html("Answer MUST be A, B or C");
+		    this.setSelectionRange(start, end);
+			//alert("Answer MUST be A, B or C");
+		}	
+	}
+		
+	// Test for non-aphanumerics and letter m in calculations dealing with molars
+		
+	if (type=='4') {
+		var thisVal = $(this).val();
+
+		if(thisVal.match(/[\0123456789]/) || thisVal.match(/[\m]/)) {              
+			urtextboxes[label.html()] = $(this).val();
+
+			//alert("label.html = "+ label.html());
+			//alert("UR txtbox @ label.html = "+ urtextboxes[label.html()]);
+
+		} else {
+			$('#status-left').html("Answer be numeric with letter m ONLY.");
+		    this.setSelectionRange(start, end);
+
+			//alert("Answer MUST be Alphanumeric");
+		}	
+	}
+
 	// alert("You entered " + $(this).val() + " In field " + label.html());
 	
-	//alert($(this).getElementByName('text1').html);
 });
+
+// channel flow according to question type 
 
 $('input[id=check-btn]').click(function() {
 
 	thisQuestionNo = $('#questionNo').html();
 	var type=$('#answertype').html();
 
-	if (urtally[thisQuestionNo]=='1') {
-		//type = '4';
-	} else {
-		//urtally[thisQuestionNo]='1';
-	} 
-
-	// alert("the question number = " + thisQuestionNo);
-	// alert("the tally value = " + urtally[thisQuestionNo]);
-	
-	//console.log("the var type = " + type);
-
 	switch(type)	
 	{
 	case '1':
-		console.log("case 1 called");
+		//console.log("case 1 called");
 		singleAnswer();
 		break;
 		
 	case '2':
-		console.log("case 2 called");
+		//console.log("case 2 called");
 		checkedAnswers();
 		break;
 		
 	case '3':
-		console.log("case 3 called");
-		// alert("case 3 called");
+		//console.log("case 3 called");
+		textBoxes();
+		break;
+		
+	case '4':
+		//console.log("case 4 called");
 		textBoxes();
 		break;
 		
 	default:
-		console.log("default case called");
+		//console.log("default case called");
 		singleAnswer();
 		break;
 	}
 		
 });
 
-$('input[id=show-btn]').click(function() {
-
-	thisQuestionNo = $('#questionNo').html();
-	var type=$('#answertype').html();
-
-	if (urtally[thisQuestionNo]=='1') {
-		//type = '4';
-	} else {
-		//urtally[thisQuestionNo]='1';
-	} 
-
-	switch(type)	
-	{
-	case '1':
-		break;
-		
-	case '2':
-		break;
-		
-	case '3':
-		console.log("case 3 called");
-		showAnswers();
-		break;
-		
-	default:
-		break;
-	}
-		
-});
+// Used to check answers for questions with radio buttons.
 
 function singleAnswer() {
 
-	console.log("singleAnswer was called");
+	// console.log("singleAnswer was called");
 
 	if (uranswer==$('#theanswer').html()) {
 	
@@ -163,10 +140,11 @@ function singleAnswer() {
 	
 }
 
+// used to verify answers for questions with checkboxes.
+
 function checkedAnswers() {
 
-	/** console.log("checkedAnswers was called");
-	alert("checkedAnswers was called");
+	/** alert("checkedAnswers was called");
 	alert("uranswer is " + uranswer);
 	alert("the answer is " + $('#theanswer').html());
 	**/
@@ -189,21 +167,19 @@ function checkedAnswers() {
 	
 }
 
+// used to check textboxes on questions 6 and 7
+
 function textBoxes() {
 
 	var allanswers = new Array();
 	
-	//alert("UR Answer length is equal to" + urtextboxes.length);
-	//alert("UR Answer 0 is equal to" + urtextboxes[0]);
-
 	for (i=0;i<urtextboxes.length-1;i++) {
 		
-		alert("i = " + i);
+		// alert("i = " + i);
+
 		j = i + 1;
+
 		allanswers[i]=$('#theanswer' + j).html();
-		//alert("Answer" + i + "is equal to" + allanswers[i]);
-		//alert("UR Answer" + i + "is equal to" + urtextboxes[j]);
-		
 
 		if (allanswers[i]==urtextboxes[j]) {
 			$('#status-left').html("Your answer is correct!");
@@ -219,18 +195,14 @@ function textBoxes() {
 		}
 	}
 	
+// For future use 
+
 function showAnswers() {
 
 	alert("showAnswers was called");
 
 	var myValue;
 
-	//for (i=1;i<4-1;i++) {
-	//	alert("the answer is " + $('#theanswer' + i).html());
-	//	myValue=$('text' + i);
-	//	myValue.value = $('#answer' + i).html();
-	//	}
-		
 	myValue=$(text1);
 	myValue.value = $('#answer1').html();
 	myValue=$(text2);
